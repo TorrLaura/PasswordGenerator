@@ -1,0 +1,73 @@
+/* Star selector (*) selects every element in the HTML file */
+
+*{
+box-sizing: border-box;
+}
+
+body{
+    background-color: aqua;
+    color: black;
+    font-family:'Playfair Display', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 25px;
+    
+
+}
+
+h2{
+    text-transform: uppercase;
+    margin: 10px 0 20px;
+    text-align: center;
+}
+
+.btn{
+    background-color: rgb(56, 19, 221);
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 8px 12px;
+}
+
+.option{
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+#container{
+    background-color: rgb(179, 234, 241);
+    padding: 15px;
+    width: 350px;
+    border-radius: 5px;
+}
+
+#result-container{
+    background-color:#ccdac1;
+    height: 50px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    padding: 10px 5px 10px 10px;
+    /* Flexbox used to position the span and button elements */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#clipboard{
+    font-size: 23px;
+}
+
+#generate{
+    font-size: 16px;
+    width: 100%;
+    text-transform: uppercase;
+}
+
+@media (max-width: 400px) {
+    #result-container{
+        font-size: 14px;
+    }
+}
