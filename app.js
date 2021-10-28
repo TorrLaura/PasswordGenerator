@@ -3,7 +3,7 @@
 // Character Generator Functions
 
 function randomIndex(str){
-    return Math.floor(Math.random()* str.lenght);
+    return Math.floor(Math.random()* str.length);
 }
 
 function getRandomLower(){
@@ -46,13 +46,13 @@ const randomFunctions = {
  const clipboardEl = document.querySelector (`#clipboard`);
 
  function generatePassword (lower, upper, number, symbol, length){
-}
+
     
 
 // Example of generatePassword function.
 // Using the starting value for when the page first loads
 generatePassword(true, true, true, true, 10)
-
+}
 // Create the Password Variable
 
 let generatedPassword = ``;
@@ -129,5 +129,41 @@ generateEl.addEventListener(`click`, () => {
 
 // The generatePassword function takes the true/false values determined by the checkboxes as well as the number from the number input as arguments and returns a string (AKA password) which is set as the innerText value for the "result"(AKA Span) element.
 resultEl.innerText = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, length);
+});
 
+// COPY PASSWORD
+clipboardEl.addEventListener(`click`,() => {
+    // Creating a textarea element which will be used to store password for it to be selected and copied.
+    const textarea = document.createElement(`textarea`);
+
+    // Accessing the text/string value for the "result" span and setting it to the password variable
+    const password = resultEl.innerText;
+
+    // If user clicks the clipboard(font on page) while no password is displayed the function will end and nothing will be copied to the clipboard(the one on the computer)
+    if (password === ``){
+        alert(`Please generate a password`);
+        return;
+    }
+
+    // Setting the value for the textarea to the password that is currently being displayed 
+    textarea.value = password;
+
+    // Selecting the body element
+    const body = document.querySelector(`body`);
+
+    // Adding the textarea to the webpage/document
+    body.append(textarea);
+
+    // Using the select method which selects (AKA Focuses in on an element)This will highlight/select the value inside the text area.
+    textarea.select();
+
+
+    // Using execCommand to copy the selected value
+    // NOTE: Some execCommand commands/arguments are not supported by all browsers. However, "copy" is supported by all browsers.
+    document.execCommand(`copy`);
+
+    // Removing the textarea element from the webpage/document
+    textarea.remove();
+
+    alert(`Password has been copied to the clipboard`);
 });
